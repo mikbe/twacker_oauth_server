@@ -1,0 +1,41 @@
+$background: #989;
+$foreground: #fef;
+$font_color: #666;
+
+body {
+  background: $background;
+  font-family: 'Open Sans', sans-serif;
+  color: $font_color;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+} 
+
+#content {
+  width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: $foreground;
+  @include border-radius(10px);
+}
+
+#title {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+#subtitle {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+#description {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+

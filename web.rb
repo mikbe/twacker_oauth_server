@@ -4,6 +4,10 @@ require 'slim'
 require 'sass'
 require 'coffee-script'
 
+get '/main.css' do
+  scss :main
+end
+
 get '/' do
   slim :index
 end

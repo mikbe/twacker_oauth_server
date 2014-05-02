@@ -2,7 +2,6 @@ require 'rubygems'
 require 'sinatra'
 require 'slim'
 require 'sass'
-require 'coffee-script'
 
 get '/main.css' do
   scss :main

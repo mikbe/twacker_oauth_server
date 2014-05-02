@@ -15,3 +15,7 @@ end
 get '/oauth' do
   slim :oauth
 end
+
+get '/logout' do
+  slim :logout
+end

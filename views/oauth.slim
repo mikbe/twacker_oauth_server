@@ -1,0 +1,26 @@
+#oauth_key
+
+script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+script src="https://ttv-api.s3.amazonaws.com/twitch.min.js" 
+
+javascript:
+  Twitch.init({clientId: 'tmlmkrn3si82qjcepi6gjjv6vcb9bns'}, function(error, status) {
+    if (error) {
+      $('#notice').text(error);
+      $('#notice').show();
+    }
+    
+    if (status.authenticated) {
+      var token = Twitch.getToken();
+      $('#oauth_key').text("oauth:" + token);
+    }
+    else {
+      $('#oauth_key').hide();
+      $('#notice').text("logging in");
+      $('#notice').show();
+            
+      Twitch.login({
+        scope: ['chat_login']
+      });
+    }
+  });

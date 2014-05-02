@@ -9,18 +9,19 @@ javascript:
       $('#notice').text(error);
       $('#notice').show();
     }
-    
-    if (status.authenticated) {
-      var token = Twitch.getToken();
-      $('#oauth_key').text("oauth:" + token);
-    }
     else {
-      $('#oauth_key').hide();
-      $('#notice').text("logging in");
-      $('#notice').show();
+      if (status.authenticated) {
+        var token = Twitch.getToken();
+        $('#oauth_key').text("oauth:" + token);
+      }
+      else {
+        $('#oauth_key').hide();
+        $('#notice').text("logging in");
+        $('#notice').show();
             
-      Twitch.login({
-        scope: ['chat_login']
-      });
+        Twitch.login({
+          scope: ['chat_login']
+        });
+      }
     }
   });

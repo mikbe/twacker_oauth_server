@@ -18,9 +18,7 @@ javascript:
     }
 
     if (error) {
-      $('#content').hide();
-      $('#notice').text(error);
-      $('#notice').show();
+      show(error, '#error');
     }
     else {
       if (status.authenticated) {
@@ -28,12 +26,16 @@ javascript:
         $('#oauth_key').text("oauth:" + token);
       }
       else {
-        $('#content').hide();
-        $('#notice').text("logging in");
-        $('#notice').show();
+        show('logging in', '#notice');
         Twitch.login({
           scope: ['chat_login']
         });
       }
     }
   });
+
+  show = function(text, section){
+    $('#content').hide();
+    $(section).text(text);
+    $(section).show();  
+  }

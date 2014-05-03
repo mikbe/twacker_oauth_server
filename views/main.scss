@@ -1,5 +1,5 @@
-$base_color: #fef;
-$background: $base_color - #555;
+$base_color: #fff;
+$background: $base_color - #777;
 $foreground: $base_color - #000;
 $font_color: #666;
 $notice_background: #c33;
@@ -21,12 +21,17 @@ body {
           border-radius: $radius;
 } 
 
-#content {
+.default {
   width: $width;
   margin: $margin auto;
   padding: $padding;
-  background: $foreground;
   @include border-radius(5px);
+  text-align: center;
+}
+
+#content {
+  @extend .default;
+  background: $foreground;
 }
 
 #title {
@@ -45,17 +50,12 @@ body {
 }
 
 #oauth_key {
-  text-align: center;
 }
 
-#notice {
-  width: $width;
-  margin: $margin auto 0 auto;
-  padding: $padding;
-  background: $notice_background;
+#error {
+  @extend .default;
   color: white;
-  @include border-radius(5px);
-  text-align: center;
+  background: $notice_background;
   text-transform: uppercase;
 }
 

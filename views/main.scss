@@ -1,47 +1,43 @@
-$base_color: #fff;
-$background: $base_color - #777;
-$foreground: $base_color - #000;
-$font_color: #666;
-$notice_background: #c33;
+$font_color:  #333;
 
-$width: 400px;
-$margin: 40px;
-$padding: 20px;
+$about_bg:    #fff;
+$error_bg:    #f66;
+$notice_bg:   #eec;
+$oauth_bg:    #fff;
+$page_bg:     #343;
 
-body {
-  background: $background;
-  font-family: 'Open Sans', sans-serif;
-  color: $font_color;
-}
+$margin:      40px;
+$padding:     20px;
+$radius:      5px;
+$width:       400px;
 
-@mixin border-radius($radius) {
+@mixin border-radius() {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
           border-radius: $radius;
-} 
+}
+
+body {
+  background: $page_bg;
+  color: $font_color;
+  font-family: sans-serif;
+}
 
 .default {
-  width: $width;
+  @include border-radius();
   margin: $margin auto;
   padding: $padding;
-  @include border-radius(5px);
-  text-align: center;
+  width: $width;
 }
 
-#content {
+.hidden {
+  display: none;
+}
+
+#about {
   @extend .default;
-  background: $foreground;
-}
-
-#title {
-  font-size: 2.5em;
-  font-weight: 700;
-}
-
-#subtitle {
-  font-size: 1.25em;
-  font-weight: 400;
+  background: $about_bg;    
 }
 
 #description {
@@ -49,16 +45,33 @@ body {
   font-weight: 300;
 }
 
-#oauth_key {
-}
-
 #error {
   @extend .default;
+  background: $error_bg;
   color: white;
-  background: $notice_background;
+  height: 1em;
+  text-align: center;
   text-transform: uppercase;
 }
 
-.hidden {
-  display: none;
+#notice {
+  @extend .default;
+  background: $notice_bg;
+  text-align: center;
+}
+
+#oauth_key {
+  @extend .default;
+  background: $oauth_bg;
+  text-align: center;
+}
+
+#subtitle {
+  font-size: 1.25em;
+  font-weight: 400;
+}
+
+#title {
+  font-size: 2.5em;
+  font-weight: 700;
 }

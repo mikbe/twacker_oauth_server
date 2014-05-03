@@ -5,6 +5,12 @@ script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"
 
 javascript:
 
+  $.show_msg = function(text, section){
+    $('#oauth_key').hide();
+    $(section).text(text);
+    $(section).show();
+  }
+
   $.urlParam = function(name){
   	var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
   	if (!results) { return 0; }
@@ -18,7 +24,7 @@ javascript:
     }
 
     if (error) {
-      show(error, '#error');
+      $.show_msg(error, '#error');
     }
     else {
       if (status.authenticated) {
@@ -26,16 +32,10 @@ javascript:
         $('#oauth_key').text("oauth:" + token);
       }
       else {
-        show('logging in', '#notice');
+        $.show_msg('logging in', '#notice');
         Twitch.login({
           scope: ['chat_login']
         });
       }
     }
   });
-
-  show = function(text, section){
-    $('#content').hide();
-    $(section).text(text);
-    $(section).show();  
-  }

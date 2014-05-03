@@ -15,12 +15,13 @@ app Twacker.
 *SASS*  
 
 *Foreman*  
-This is for use with Heroku, you can remove it from the gemfile if you're not 
-using Heroku. I had to specifically add it otherwise Heroku forces Ruby 2.0.0
+This is for use with Heroku, you can remove it from 
+the gemfile if you're not using Heroku. I had to 
+specifically add it otherwise Heroku forces Ruby 2.0.0
 
 #### Instructions
 
-All you really need to do is add your own public Twitch client ID for your app.
+All you need to do is add your own public Twitch client ID for your app.
 
 #### License
 

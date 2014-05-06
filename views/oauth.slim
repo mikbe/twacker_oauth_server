@@ -1,4 +1,4 @@
-#oauth_key
+#oauth
 
 script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
 script src="https://ttv-api.s3.amazonaws.com/twitch.min.js" 
@@ -6,7 +6,7 @@ script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"
 javascript:
 
   $.show_msg = function(text, section){
-    $('#oauth_key').hide();
+    $('#oauth').hide();
     $(section).text(text);
     $(section).show();
   }
@@ -29,7 +29,9 @@ javascript:
     else {
       if (status.authenticated) {
         var token = Twitch.getToken();
-        $('#oauth_key').text("oauth:" + token);
+        $('#notice').text('Your OAuth password is:');
+        $('#notice').show();
+        $('#oauth').text("oauth:" + token);
       }
       else {
         $.show_msg('logging in', '#notice');

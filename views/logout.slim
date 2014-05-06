@@ -1,4 +1,4 @@
-#oauth_key
+#oauth
 
 script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
 script src="https://ttv-api.s3.amazonaws.com/twitch.min.js" 
@@ -13,5 +13,5 @@ javascript:
     if (status.authenticated) {
       Twitch.logout();
     }
-    $('#oauth_key').text("logged out");
+    $('#oauth').text("logged out");
   });

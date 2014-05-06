@@ -8,7 +8,7 @@ get '/main.css' do
 end
 
 get '/' do
-  slim :index
+  slim :about
 end
 
 get '/oauth' do

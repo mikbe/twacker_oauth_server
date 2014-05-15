@@ -41,7 +41,7 @@ javascript:
         else {
           $.show_msg('logging in', '#notice');
           Twitch.login({
-            scope: ['chat_login', 'channel_subscriptions', 'user_subscriptions', 'channel_check_subscription']
+            scope: ['chat_login']
           });
         }
       }
